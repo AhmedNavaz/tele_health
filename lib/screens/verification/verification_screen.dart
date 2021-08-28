@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tele_health/constants/colors.dart';
 import 'package:tele_health/constants/controllers.dart';
 import 'package:tele_health/controllers/authentication/profile_controller.dart';
+import 'package:tele_health/router/route_generator.dart';
 
 class VerificationScreen extends StatefulWidget {
   const VerificationScreen({Key? key}) : super(key: key);
@@ -38,7 +39,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
             Row(
               children: [
                 addDoc('National ID', () {
-                  navigationController.navigateTo('/national-id');
+                  navigationController.navigateTo('/national-id').then((value) {
+                    setState(() {});
+                  });
                 }),
                 Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -53,7 +56,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
             Row(
               children: [
                 addDoc('Academic Documents', () {
-                  navigationController.navigateTo('/academic-docs');
+                  navigationController.navigateTo('/academic-docs').then((value) {
+                    setState(() {});
+                  });
                 }),
                 Padding(
                     padding: const EdgeInsets.only(left: 10),
@@ -69,7 +74,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
             Row(
               children: [
                 addDoc('Certifications', () {
-                  navigationController.navigateTo('/certifications');
+                  navigationController.navigateTo(certifications).then((value) {
+                    setState(() {});
+                  });
                 }),
                 Padding(
                     padding: const EdgeInsets.only(left: 10),
