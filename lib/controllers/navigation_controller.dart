@@ -13,6 +13,10 @@ class NavigationController extends GetxController {
     return navigationKey.currentState!.pushNamed(routeName);
   }
 
+  Future<dynamic> navigateWithArg(String routeName) {
+    return navigationKey.currentState!.pushNamed(routeName);
+  }
+
   Future<dynamic>? getOffAll(String routeName) {
     return Get.offAllNamed(routeName);
   }

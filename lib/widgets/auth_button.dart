@@ -4,14 +4,14 @@ import 'package:flutter/material.dart';
 class AuthButton extends StatelessWidget {
   AuthButton({Key? key, this.text, this.onClick}) : super(key: key);
   Widget? text;
-  Function? onClick;
+  VoidCallback? onClick;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 10),
       child: ElevatedButton(
-        onPressed: () => onClick,
+        onPressed: onClick,
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 119, vertical: 22),
           child: text,

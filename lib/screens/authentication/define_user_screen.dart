@@ -102,11 +102,16 @@ class _DefineUserScreenState extends State<DefineUserScreen> {
           ),
           ElevatedButton(
             onPressed: () {
-              navigationController.navigateTo('/auth-body');
+              if (_selected != null) {
+                navigationController.navigateTo('/auth-body');
+              }
             },
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 30),
               child: Text('Continue'),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: _selected == null ? Colors.grey : blue,
             ),
           )
         ],

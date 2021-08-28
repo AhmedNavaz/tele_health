@@ -29,6 +29,8 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get: ^4.3.8
+  image_picker: ^0.8.3+3
+  file_picker: ^4.0.0
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,9 @@ flutter:
   assets:
     - assets/images/doctor.png
     - assets/images/patient.png
+    - assets/images/word_file.png
+    - assets/images/pdf_file.png
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

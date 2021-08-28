@@ -22,22 +22,27 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       theme: ThemeData(
-        scaffoldBackgroundColor: Colors.grey.shade100,
-        elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
-            onPrimary: Colors.white,
-            primary: blue,
+          scaffoldBackgroundColor: Colors.grey.shade100,
+          elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ElevatedButton.styleFrom(
+              onPrimary: Colors.white,
+              primary: blue,
+            ),
           ),
-        ),
-        textButtonTheme: TextButtonThemeData(
-          style: TextButton.styleFrom(
+          textButtonTheme: TextButtonThemeData(
+            style: TextButton.styleFrom(
               primary: blue,
               textStyle: TextStyle(
                 fontWeight: FontWeight.bold,
                 decoration: TextDecoration.underline,
-              )),
-        ),
-      ),
+              ),
+            ),
+          ),
+          outlinedButtonTheme: OutlinedButtonThemeData(
+              style: OutlinedButton.styleFrom(
+            primary: blue,
+            side: BorderSide(color: blue),
+          ))),
       debugShowCheckedModeBanner: false,
       initialRoute: initialRoute,
       defaultTransition: Transition.zoom,

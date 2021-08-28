@@ -13,14 +13,28 @@ class LoginScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            Container(
-              margin: const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
-              alignment: Alignment.topLeft,
-              child: Text(
-                'Welcome\nback',
-                style: TextStyle(
-                    color: blue, fontSize: 38, fontWeight: FontWeight.bold),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  margin:
+                      const EdgeInsets.symmetric(horizontal: 25, vertical: 30),
+                  alignment: Alignment.topLeft,
+                  child: Text(
+                    'Welcome\nback',
+                    style: TextStyle(
+                        color: blue, fontSize: 38, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Image.asset(
+                    'assets/images/doctor.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                ),
+              ],
             ),
             TextFieldBody(
               textField: TextFormField(
