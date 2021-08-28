@@ -12,6 +12,9 @@ class VerificationScreen extends StatefulWidget {
   _VerificationScreenState createState() => _VerificationScreenState();
 }
 
+bool? _verificationInProgress = false;
+String? status = 'Not Verified';
+
 class _VerificationScreenState extends State<VerificationScreen> {
   ProfileController profileController = Get.find<ProfileController>();
   @override
@@ -56,7 +59,9 @@ class _VerificationScreenState extends State<VerificationScreen> {
             Row(
               children: [
                 addDoc('Academic Documents', () {
-                  navigationController.navigateTo('/academic-docs').then((value) {
+                  navigationController
+                      .navigateTo('/academic-docs')
+                      .then((value) {
                     setState(() {});
                   });
                 }),
@@ -92,10 +97,22 @@ class _VerificationScreenState extends State<VerificationScreen> {
             Container(
               child: Obx(
                 () => ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    if (profileController.doctorProfile.value.idImage == true &&
+                        profileController
+                                .doctorProfile.value.academicDocuments ==
+                            true &&
+                        profileController.doctorProfile.value.certifications ==
+                            true)
+                      setState(() {
+                        status = 'Verifying...';
+                      });
+                  },
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 15),
-                    child: Text('Start Verification'),
+                    child: _verificationInProgress == false
+                        ? Text('Start Verification')
+                        : Text('Continue'),
                   ),
                   style: ElevatedButton.styleFrom(
                     primary:
@@ -116,8 +133,11 @@ class _VerificationScreenState extends State<VerificationScreen> {
             ListTile(
               title: Text('Status:'),
               trailing: Text(
-                'Not Verified',
-                style: TextStyle(color: Colors.red),
+                status!,
+                style: TextStyle(
+                    color:
+                        status == 'Not Verified' ? Colors.red : Colors.orange,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ],

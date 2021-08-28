@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:get/get.dart';
 import 'package:tele_health/constants/colors.dart';
 import 'package:tele_health/constants/controllers.dart';
+import 'package:tele_health/controllers/authentication/profile_controller.dart';
 
 class DefineUserScreen extends StatefulWidget {
   const DefineUserScreen({Key? key}) : super(key: key);
@@ -10,9 +12,9 @@ class DefineUserScreen extends StatefulWidget {
   _DefineUserScreenState createState() => _DefineUserScreenState();
 }
 
-var _selected;
-
 class _DefineUserScreenState extends State<DefineUserScreen> {
+  ProfileController profileController = Get.put(ProfileController());
+  var _selected;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,6 +105,9 @@ class _DefineUserScreenState extends State<DefineUserScreen> {
           ElevatedButton(
             onPressed: () {
               if (_selected != null) {
+                _selected == 0
+                    ? profileController.accountType = AccountType.patient
+                    : profileController.accountType = AccountType.doctor;
                 navigationController.navigateTo('/auth-body');
               }
             },

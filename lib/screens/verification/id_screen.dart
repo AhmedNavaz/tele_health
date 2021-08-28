@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:tele_health/constants/colors.dart';
 import 'package:tele_health/constants/controllers.dart';
 import 'package:tele_health/controllers/authentication/profile_controller.dart';
-import 'package:tele_health/models/doctor_profile.dart';
 import 'dart:io';
 
 import 'package:tele_health/utils/image_handler.dart';
@@ -115,7 +114,9 @@ class _IDScreenState extends State<IDScreen> {
                   minimumSize: Size(120, 50),
                 ),
                 onPressed: () {
-                  profileController.doctorProfile.value.idImage = true;
+                  if (_frontImage != null && _backImage != null) {
+                    profileController.doctorProfile.value.idImage = true;
+                  }
                   navigationController.goBack();
                 },
                 child: Text('Save'),

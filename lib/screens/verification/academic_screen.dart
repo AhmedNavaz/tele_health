@@ -128,7 +128,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
                           : const Text('No file uploaded yet'),
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.3),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.25),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   minimumSize: Size(120, 50),
